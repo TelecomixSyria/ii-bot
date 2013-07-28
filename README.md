@@ -29,4 +29,4 @@ Then the rest of the scripts actually make your bot do something. Up to you to r
 ## Hack
 The most simple is to add handlers to `irc_handlers.sh` to elaborate the bot's behavior and make it do more things.
 
-Corrections and bugfixes on existing code will probably be merged. New features (like bot functionnalities) will only be merged if they are relevant in the case of ii-bot running on wnh.me. This is of course totally subject to randon and arbitrary change. But you're free to clone the repo and do whatever you like with it anyway.
+Corrections and bugfixes on existing code will probably be merged. New features (like bot functionnalities) will only be merged if they are relevant in the case of ii-bot running on wnh.me. This is of course totally subject to random and arbitrary changes. But you're free to clone the repo and do whatever you like with it anyway.
