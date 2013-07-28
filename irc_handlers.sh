@@ -34,7 +34,7 @@ msg_command () {
   local MSG="$2"
 
   local CMDCH=${MSG:0:1}
-  local CMD=$(cut -b 2- <<<"$MSG" | cut -d' ' -f1)
+  local CMD=$(cut -c 2- <<<"$MSG" | cut -d' ' -f1)
   local ARGS=$(cut -d' ' -f 2- <<<"$MSG")
 
   case $CMD in
