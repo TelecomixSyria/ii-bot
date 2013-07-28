@@ -2,7 +2,7 @@
 
 Yeah, lovely ii from irc.wnh.me/6697 (SSL) #dn, open for hacks for fun and non-profit!
 
-## Prerequisistes
+## Prerequisites
 A couple of common system packages are required: `ii`, `curl`, `html2text` and some others that will most likely be installed by default on your distro. Make sure `bash` is installed, at least version 4.
 
 There are Python packages needed to for the microblogging support, see _import_ statements in `microblog.py`.
