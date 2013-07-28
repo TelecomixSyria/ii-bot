@@ -16,7 +16,7 @@ Since `ii` does not know SSL, you'll need something like `socat` if you want to 
 
 For microblogging (StatusNet, Twitter), you'll need to configure the proper credentials in `microblog_secrets.py` and probably change the StatusNet domain setting in `microblog.py` (if the code was clean it would not be hardcoded).
 
-Change `{JOIN,MSG}_{REGEX,HANDLER}` variables in `process_irc.sh` to customize nicks and messages your bot recognizes and which functions are called depending on what is matched. Then, create your own or modify exiting handlers in `irc_handlers.sh`.
+Change `{JOIN,MSG}_{REGEX,HANDLER}` arrays in `irc_handlers.sh` to customize nicks and messages your bot recognizes and which functions are called depending on what happens on IRC. In the same file, you can create and modify existing handlers: they define the reaction of your bot.
 
 ## Run
 The first thing to do is to start the bot: `./bot.sh`. If all goes well, your bot should join the channels you configured.
