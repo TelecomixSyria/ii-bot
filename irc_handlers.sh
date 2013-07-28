@@ -2,8 +2,8 @@
 
 # Associative arrays defining which commands to call depending
 # on a regex-based match of the IRC event with egrep.
-# ..._REGEX is an array of regular expressions to test match against.
-# ..._HANDLER is an array of commands to call is regex of corresponding
+# ..._REGEX is an array of regular expressions to match against.
+# ..._HANDLER is an array of commands to call if regex with same
 #             index is matched
 #
 # For join events, we match against the nickname that joined.
