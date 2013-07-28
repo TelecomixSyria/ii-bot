@@ -23,17 +23,8 @@ SED_JOIN_NICK='s/'"^$DATE_TIME"' -!- ([^ \\(\\)]*).*/\1/'
 SED_MSG_NICK='s/'"^$DATE_TIME"' <([^ ]*)>.*/\1/'
 SED_MSG_MSG='s/'"^$DATE_TIME"' <[^ ]*> (.*)/\1/'
 
-# Associative arrays defining sort of callbacks:
-# regex to match the nickname, handler is the call to make in case of match
-JOIN_REGEX=("")
-JOIN_HANDLER=("join_default")
-
-# Same for messages, but we match the message, not the nick
-MSG_REGEX=("" '^\+')
-MSG_HANDLER=("msg_default" "msg_command")
-
-# In the following shell script you should define your handling functions.
-# They'll be called depending on the regex matching.
+# In the following shell script you should define your handling functions
+# and which match should trigger them.
 . irc_handlers.sh
 
 handle_join () {

@@ -1,5 +1,22 @@
 #!/bin/bash
 
+# Associative arrays defining which commands to call depending
+# on a regex-based match of the IRC event with egrep.
+# ..._REGEX is an array of regular expressions to test match against.
+# ..._HANDLER is an array of commands to call is regex of corresponding
+#             index is matched
+#
+# For join events, we match against the nickname that joined.
+JOIN_REGEX=("")
+JOIN_HANDLER=("join_default")
+
+# For message events, we match against the message that was said.
+MSG_REGEX=("" '^\+')
+MSG_HANDLER=("msg_default" "msg_command")
+
+
+#######################################################################
+
 MICROBLOG_UPDATE=./microblog.py
 MICROBLOG_MAXLEN=140
 
