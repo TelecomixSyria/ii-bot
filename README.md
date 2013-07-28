@@ -1,4 +1,4 @@
-# Telecomis Syria's ii-bot
+# Telecomix Syria's ii-bot
 
 Yeah, lovely ii from irc.wnh.me/6697 (SSL) #dn, open for hacks for fun and non-profit!
 
