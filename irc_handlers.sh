@@ -42,11 +42,26 @@ msg_command () {
       echo 'nomnomnomcrunch!! \o/'
       ;;
 
-    moo|fart)
+    moo|fart|o\<)
       if [ ${#ARGS} -gt $MICROBLOG_MAXLEN ]; then
         echo You message is too long, "$NICK". Maximum $MICROBLOG_MAXLEN but you typed ${#ARGS}.
       else
         $MICROBLOG_UPDATE "$ARGS"
+      fi
+      ;;
+
+    \<3)
+      local TID=$(cut -d' ' -f 1 <<<"$ARGS")
+      $MICROBLOG_UPDATE RT $TID
+      ;;
+
+    re)
+      local TID=$(cut -d' ' -f 1 <<<"$ARGS")
+      local TEXT="$(cut -d' ' -f 2- <<<"$ARGS")"
+      if [ ${#TEXT} -gt $MICROBLOG_MAXLEN ]; then
+        echo "Message too long, $NICK". Maximum $MICROBLOG_MAXLEN but you typed ${#TEXT}.
+      else
+        $MICROBLOG_UPDATE RP $TID "$TEXT"
       fi
       ;;
 
@@ -57,7 +72,7 @@ msg_command () {
       ;;
 
     help)
-      echo cookie moo fart ur1
+      echo 'cookie moo fart o< ur1'
       ;;
 
     *)
