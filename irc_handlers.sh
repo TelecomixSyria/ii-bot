@@ -72,7 +72,7 @@ msg_command () {
       ;;
 
     help)
-      echo 'cookie moo fart o< ur1'
+      echo 'cookie moo fart o< <3 re ur1'
       ;;
 
     *)
