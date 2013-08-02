@@ -26,20 +26,55 @@ t = Twitter (secure=True, auth=OAuth(microblog_secrets.ACCESS_KEY, microblog_sec
 sn = Twitter(secure=True, domain='status.homecomputing.fr/api', auth=UserPassAuth(microblog_secrets.USERNAME, microblog_secrets.PASSWORD))
 
 if len(sys.argv) >= 2:
-  newstatus = sys.argv[1]
-
   ret_twitter = 'OK'
   ret_statusnet = 'OK'
 
-  try:
-    sn.statuses.update(status=newstatus)
-  except:
-    ret_statusnet = 'fail'
+  if len(sys.argv) == 2:
+    newstatus=sys.argv[1]
 
-  try:
-    t.statuses.update(status=newstatus)
-  except:
-    ret_twitter = 'fail'
+    try:
+      sn.statuses.update(status=newstatus)
+    except:
+      ret_statusnet = 'fail'
+
+    try:
+      t.statuses.update(status=newstatus)
+    except:
+      ret_twitter = 'fail'
+
+  elif len(sys.argv) >= 3:
+    command=sys.argv[1]
+    argument=sys.argv[2]
+
+    if command == 'RT' and len(argument) < 18:
+      ret_twitter = 'N/A'
+      try:
+        sn.statuses.retweet (argument)
+      except:
+        ret_statusnet = 'fail'
+
+    elif command == 'RT' and len(argument) == 18:
+      ret_statusnet = 'N/A'
+      try:
+        t.statuses.retweet (argument)
+      except:
+        ret_twitter = 'fail'
+
+    elif command == 'RP' and len(sys.argv) == 4:
+      argmsg = sys.argv[3]
+      params = {'status': argmsg, 'in_reply_to_status_id': argument}
+      if len(argument) < 18
+        ret_twitter = 'N/A'
+        try:
+          sn.statuses.update (**params)
+        except:
+          ret_statusnet = 'fail'
+      elif len(argument) == 18
+        ret_statusnet = 'N/A'
+        try:
+          t.statuses.update (**params)
+        except:
+          ret_twitter = 'fail'
 
   print u"StatusNet: %s - Twitter: %s" %(ret_statusnet, ret_twitter)
 
