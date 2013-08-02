@@ -49,27 +49,27 @@ if len(sys.argv) >= 2:
     if command == 'RT' and len(argument) < 18:
       ret_twitter = 'N/A'
       try:
-        sn.statuses.retweet (argument)
+        sn.statuses.retweet (id = argument)
       except:
         ret_statusnet = 'fail'
 
     elif command == 'RT' and len(argument) == 18:
       ret_statusnet = 'N/A'
       try:
-        t.statuses.retweet (argument)
+        t.statuses.retweet (id = argument)
       except:
         ret_twitter = 'fail'
 
     elif command == 'RP' and len(sys.argv) == 4:
       argmsg = sys.argv[3]
       params = {'status': argmsg, 'in_reply_to_status_id': argument}
-      if len(argument) < 18
+      if len(argument) < 18:
         ret_twitter = 'N/A'
         try:
           sn.statuses.update (**params)
         except:
           ret_statusnet = 'fail'
-      elif len(argument) == 18
+      elif len(argument) == 18:
         ret_statusnet = 'N/A'
         try:
           t.statuses.update (**params)
