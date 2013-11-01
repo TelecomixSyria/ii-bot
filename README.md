@@ -16,6 +16,8 @@ Since `ii` does not know SSL, you'll need something like `socat` if you want to 
 
     socat TCP4-LISTEN:8888,bind=127.0.0.1,fork,reuseaddr OPENSSL:irc.wnh.me:6697
 
+If `socat` does not trust the remote SSL certificate, you should use the parameter `cafile` and provide the path to the trusted root certificate. In the worst case you can append `verify=0` to the `OPENSSL` command to by pass the SSL verification. See the manpage `socat(1)`.
+
 For microblogging (StatusNet, Twitter), you'll need to configure the proper credentials in `microblog_secrets.py` (there is an example file in `microblog_secrets.py.example`) and probably change the StatusNet domain setting in `microblog.py` (if the code was clean it would not be hardcoded).
 
 Change `{JOIN,MSG}_{REGEX,HANDLER}` arrays in `irc_handlers.sh` to customize nicks and messages your bot recognizes and which functions are called depending on what happens on IRC. In the same file, you can create and modify existing handlers: they define the reaction of your bot.
