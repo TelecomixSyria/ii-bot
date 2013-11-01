@@ -14,7 +14,7 @@ Edit `bot.sh` to setup IRC server and channels settings.
 
 Since `ii` does not know SSL, you'll need something like `socat` if you want to connect using _SSL_. You may use something like:
 
-    socat TCP4-LISTEN:127.0.0.1:8888,fork,reuseaddr OPENSSL:irc.wnh.me:6697
+    socat TCP4-LISTEN:8888,bind=127.0.0.1,fork,reuseaddr OPENSSL:irc.wnh.me:6697
 
 For microblogging (StatusNet, Twitter), you'll need to configure the proper credentials in `microblog_secrets.py` (there is an example file in `microblog_secrets.py.example`) and probably change the StatusNet domain setting in `microblog.py` (if the code was clean it would not be hardcoded).
 
