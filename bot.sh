@@ -8,7 +8,7 @@
 IRC_HOST="127.0.0.1"
 IRC_PORT="8888"
 IRC_NICK="ii"
-IRC_CONNECTIONS="~/ii-data"
+IRC_CONNECTIONS=~/ii-data
 IRC_CHANS="#dn"
 
 mkdir -p "$IRC_CONNECTIONS"
