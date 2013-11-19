@@ -20,6 +20,8 @@ MSG_HANDLER=("msg_default" "msg_command")
 MICROBLOG_UPDATE=./microblog.py
 MICROBLOG_MAXLEN=140
 
+SOURCECODE_URL=https://github.com/TelecomixSyria/ii-bot
+
 join_default () {
   local NICK="$1"
 }
@@ -71,8 +73,12 @@ msg_command () {
            | grep 'p class="success"' | html2text -nobs | head -n 1
       ;;
 
+    striptease)
+      echo Find me naked at $SOURCECODE_URL '!'
+      ;;
+
     help)
-      echo 'cookie moo fart o< <3 re ur1'
+      echo 'cookie moo fart o< <3 re ur1 striptease'
       ;;
 
     *)
