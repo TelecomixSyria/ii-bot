@@ -36,8 +36,8 @@ msg_command () {
   local MSG="$2"
 
   local CMDCH=${MSG:0:1}
-  local CMD=$(cut -c 2- <<<"$MSG" | cut -d' ' -f1)
-  local ARGS=$(cut -d' ' -f 2- <<<"$MSG")
+  local CMD=$(echo "$MSG" | cut -c 2- | cut -d' ' -f1)
+  local ARGS=$(echo "$MSG" | cut -d' ' -f 2-)
 
   case $CMD in
     cookie)
@@ -45,8 +45,9 @@ msg_command () {
       ;;
 
     moo|fart|o\<)
-      if [ ${#ARGS} -gt $MICROBLOG_MAXLEN ]; then
-        echo You message is too long, "$NICK". Maximum $MICROBLOG_MAXLEN but you typed ${#ARGS}.
+      MSGLEN=$(echo "$ARGS" | wc -m)
+      if [ $MSGLEN -gt $MICROBLOG_MAXLEN ]; then
+        echo You message is too long, "$NICK". Maximum $MICROBLOG_MAXLEN but you typed $MSGLEN.
       else
         $MICROBLOG_UPDATE "$ARGS"
       fi
